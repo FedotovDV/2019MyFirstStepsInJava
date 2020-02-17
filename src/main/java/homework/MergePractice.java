@@ -9,13 +9,19 @@ public class MergePractice {
         System.out.println("Исходный массив: ");
         printArray(myArr);
         System.out.println(" sortArrayMerge");
+        long startTime = System.nanoTime();
         sortArrayMerge(myArr, 0, myArr.length - 1);
+        long endTime = System.nanoTime();
         System.out.println("Отсортированный массив: ");
+        System.out.println("Total Time in Neno Second: "+ (endTime-startTime));
         printArray(myArr);
         myArr = new int[]{5, 2, 4, 6, 1, 3, 2, 6};
         System.out.println(" SortUnsorted");
+        startTime = System.nanoTime();
         SortUnsorted(myArr, 0, myArr.length - 1);
+        endTime = System.nanoTime();
         System.out.println("Отсортированный массив: ");
+        System.out.println("Total Time in Neno Second: "+ (endTime-startTime));
         printArray(myArr);
     }
 
@@ -33,21 +39,6 @@ public class MergePractice {
         mergeArray(myArr, firstIndex, midleIndex, lastIndex);
 
 
-    }
-
-    private static void mergeArray2(int[] myArr, int firstIndex, int midleIndex, int lastIndex) {
-// пока не работает!
-        for (int j = midleIndex + 1; j <= lastIndex; j++) {
-            for (int i = firstIndex; i <= midleIndex; i++) {
-                if (myArr[j] <= myArr[i]) {
-                    int temp = myArr[i];
-                    myArr[i] = myArr[j];
-                    myArr[j] = temp;
-
-                }
-            }
-        }
-        printArray(myArr);
     }
 
     private static void mergeArray(int[] myArr, int firstIndex, int midleIndex, int lastIndex) {
